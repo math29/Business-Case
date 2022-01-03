@@ -1,0 +1,22 @@
+<div id="centrage">
+    <div id="mainDiv">
+        <div id="left">
+            <h1>BIENVENUE</h1>
+            <form (ngSubmit)="connexion(monForm)" #monForm=ngForm>
+                <input type="email" placeholder="Adresse Email" name="email" [(ngModel)]="email" required>
+                <input type="password" placeholder="Mot de passe" name="password" [(ngModel)]="password" required>
+                <div id="aside">
+                    <div>
+                        <input type="checkbox" name="souvenir" id="souvenir" [(ngModel)]="souvenir">
+                        <label for="souvenir">Se souvenir de moi</label>
+                    </div>
+                    <a href="">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!monForm.valid">Se connecter</button>
+            </form>
+        </div>
+        <div id="right">
+            <img src="../../assets/img/Logo.png" alt="">
+        </div>
+    </div>
+</div>

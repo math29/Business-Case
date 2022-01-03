@@ -1,0 +1,44 @@
+<div id="topbar">
+    <div id="searchbar" class="flexbox">
+        <div class="search">
+            <div>
+                <input type="text" placeholder="Search . . ." required>
+            </div>
+        </div>
+        <img id="notif" src="../../assets/img/notificationBlanc.png" alt="">
+        <img id="compte" src="../../assets/img/compteBlanc.png" alt="">
+    </div>
+</div>
+<div id="main">
+    <div id="sidebar">
+        <div id="logo">
+            <img src="../../assets/img/Logo.png" alt="">
+            <h1>M. Capard</h1>
+            <p>Bienvenue sur le dashboard</p>
+        </div>
+        <h3 id="h3Nav">Navigation</h3>
+        <ul>
+            <li routerLink="general">Général</li>
+            <hr>
+            <li>Statistiques avancés</li>
+            <hr>
+            <li>Contact</li>
+            <hr>
+            <li>Messages</li>
+            <hr>
+            <li>Options</li>
+        </ul>
+        <mat-form-field appearance="fill" id="calendrier">
+            <mat-label>Entrez une date</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Date début">
+                <input matEndDate placeholder="Date fin">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+    </div>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</div>
