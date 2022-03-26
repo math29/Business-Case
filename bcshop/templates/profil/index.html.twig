@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+<div class="example-wrapper">
+
+    <div class="container">
+        {% for message in app.flashes('message') %}
+            <div class="alert alert-dismissible alert-success">
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+
+
+        <h2><u>Votre profil</u></h2>
+        <div class="text-center">
+            <p><strong>Pseudo</strong> : {{ app.user.username }}</p>
+        <p><strong>Prénom</strong> : {{ app.user.firstname }}</p>
+        <p><strong>Nom</strong> : {{ app.user.secondname }}</p>
+        <p><strong>Sexe</strong> : {{ app.user.genre }}</p>
+        <p><strong>Email</strong> : {{ app.user.email }}</p>
+        <p><strong>Date de naissance</strong> : {{ app.user.birthdate|date('d-m-Y') }}</p>
+        </div>
+        <a class="btn btn-primary" href="{{ path('changeprofil', {id:app.user.id}) }}">Modifier le profil</a>
+        <a class="btn btn-primary" href="{{ path('changepassword', {id:app.user.id}) }}">Modifier le mot de passe</a>
+        <a class="btn btn-danger" href="{{ path('deleteprofil', {id:app.user.id}) }}">Supprimer le compte</a>
+        <hr>
+        <h2><u>Adresses de livraison</u></h2>
+        <div class="text-center">
+        {% for address in app.user.addresses %}
+            <p>{{ address.number }} {{ address.street }} {{ address.zipcode }} {{ address.city }}</p>
+            <hr>
+        {% endfor %}
+        </div>
+
+{#        <a href="{{ path('addAddress') }}">Ajouter une addresse de livraison</a>#}
+    </div>
+</div>
+{% endblock %}
