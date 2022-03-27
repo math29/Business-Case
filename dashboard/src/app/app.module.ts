@@ -13,6 +13,8 @@ import { GeneralComponent } from './components/main-dashboard/general/general.co
 import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './service/orders.service';
+import { NbOrdersComponent } from './components/charts/nb-orders/nb-orders.component';
+import { AverageCartsComponent } from './components/charts/average-carts/average-carts.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { OrdersService } from './service/orders.service';
     ConnexionComponent,
     MainDashboardComponent,
     GeneralComponent,
+    NbOrdersComponent,
+    AverageCartsComponent,
   ],
   imports: [
     BrowserModule,
